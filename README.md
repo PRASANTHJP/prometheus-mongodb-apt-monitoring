@@ -20,7 +20,7 @@ This repository provides an out-of-the-box solution to monitor MongoDB and APT s
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/prometheus-mongodb-apt-monitoring.git
+    git clone https://github.com/PRASANTHJP/prometheus-mongodb-apt-monitoring.git
     cd prometheus-mongodb-apt-monitoring
     ```
 
