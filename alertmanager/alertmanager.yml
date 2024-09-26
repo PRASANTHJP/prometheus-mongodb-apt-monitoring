@@ -1,0 +1,16 @@
+#This file configures Alertmanager to send alerts via email
+
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: 'email'
+
+receivers:
+- name: 'email'
+  email_configs:
+  - to: 'youremail@example.com'
+    from: 'alertmanager@example.com'
+    smarthost: 'smtp.example.com:587'
+    auth_username: 'smtp_user'
+    auth_password: 'smtp_password'
