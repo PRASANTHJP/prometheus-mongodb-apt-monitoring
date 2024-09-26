@@ -1,0 +1,22 @@
+#Define alerting rules for MongoDB and APT services:
+
+groups:
+- name: mongodb_alerts
+  rules:
+  - alert: MongoDBHighMemoryUsage
+    expr: sum by (instance) (mongodb_mem_resident) > 1000
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "MongoDB instance high memory usage"
+      description: "MongoDB instance {{ $labels.instance }} is using too much memory."
+
+- alert: APTUpdatesAvailable
+  expr: node_apt_upgrades_pending > 0
+  for: 10m
+  labels:
+    severity: warning
+  annotations:
+    summary: "APT updates are available"
+    description: "APT service on instance {{ $labels.instance }} has pending updates."
