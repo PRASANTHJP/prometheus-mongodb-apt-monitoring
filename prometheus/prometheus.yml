@@ -1,0 +1,13 @@
+#This file configures Prometheus to scrape metrics from MongoDB and Node Exporter:
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mongodb'
+    static_configs:
+      - targets: ['localhost:9216']  # MongoDB Exporter port
+
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['localhost:9100']  # Node Exporter port
